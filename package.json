@@ -1,0 +1,16 @@
+{
+  "name": "nodered",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node node_modules/node-red/red.js -u user",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "node-red": "^2.0.5",
+    "node-red-node-sqlite": "^1.0.0"
+  }
+}
