@@ -1,0 +1,12 @@
+[Unit]
+Description=nodered
+
+[Service]
+Type=simple
+User=root
+ExecStart=npm start
+WorkingDirectory=${PWD}
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

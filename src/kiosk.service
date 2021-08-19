@@ -1,0 +1,11 @@
+[Unit]
+Description=Kiosk
+
+[Service]
+Type=simple
+User=kiosk-user
+ExecStart=/usr/bin/startx /etc/X11/Xsession /bin/kiosk.sh -- -nocursor
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
