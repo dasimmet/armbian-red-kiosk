@@ -53,7 +53,7 @@ my_install_nodeps(){
     set +x
 }
 my_deps(){
-    apt-get install xorg xserver-xorg-legacy openbox chromium-browser git
+    apt-get install xorg xserver-xorg-legacy openbox chromium-browser git unclutter
 }
 my_install(){
     my_deps
