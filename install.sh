@@ -40,6 +40,7 @@ fi
 my_install_nodeps(){
     set -x
     echo $URL
+    npm install
     install -m 644 src/Xwrapper.config /etc/X11/Xwrapper.config
     my_envsubst src/kiosk.sh /bin/kiosk.sh
     chmod 755 /bin/kiosk.sh
@@ -47,7 +48,8 @@ my_install_nodeps(){
     my_envsubst src/nodered.service /etc/systemd/system/nodered.service
     useradd -m kiosk-user
     systemctl daemon-reload
-    systemctl restart kiosk nodered
+    systemctl enable kiosk.service nodered.service
+    systemctl restart kiosk.service nodered.service
     set +x
 }
 my_deps(){
