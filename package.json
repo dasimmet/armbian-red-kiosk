@@ -11,7 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "node-red": "^2.0.5",
+    "node-red-contrib-wifiscan": "^0.0.2",
     "node-red-dashboard": "^2.30.0",
-    "node-red-node-sqlite": "^1.0.0"
+    "node-red-node-sqlite": "^1.0.0",
+    "node-red-node-ui-iframe": "^0.2.1"
   }
 }
