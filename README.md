@@ -2,7 +2,7 @@
 
 ## Auto Install
 ```bash
-curl -sL https://raw.githubusercontent.com/dasimmet/armbian-red-kiosk/master/src/autoinstall.sh | bash -
+curl -sL https://raw.githubusercontent.com/dasimmet/armbian-red-kiosk/master/bin/autoinstall.sh | bash -
 ```
 
 ## Manual install

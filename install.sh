@@ -33,7 +33,12 @@ done
 if [[ $(type -t my_"${POSITIONAL[@]}") == function ]]; then
     my_"${POSITIONAL[@]}"
 else
-    echo "Invalid command"
+    cat << EOF
+available commands:
+
+install        - installs all dependencies and services
+install_nodeps - skips installing dependencies
+EOF
 fi
 }
 
@@ -42,11 +47,11 @@ my_install_nodeps(){
     set -e
     echo $URL
     npm install
-    install -m 644 src/Xwrapper.config /etc/X11/Xwrapper.config
-    my_envsubst src/kiosk.sh /bin/kiosk.sh
+    install -m 644 etc/Xwrapper.config /etc/X11/Xwrapper.config
+    my_envsubst bin/kiosk.sh /bin/kiosk.sh
     chmod 755 /bin/kiosk.sh
-    install -m 644 src/kiosk.service /etc/systemd/system/kiosk.service
-    my_envsubst src/nodered.service /etc/systemd/system/nodered.service
+    install -m 644 etc/kiosk.service /etc/systemd/system/kiosk.service
+    my_envsubst etc/nodered.service /etc/systemd/system/nodered.service
     useradd -m kiosk-user || true
     systemctl daemon-reload
     systemctl enable kiosk.service nodered.service
