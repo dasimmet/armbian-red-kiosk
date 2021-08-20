@@ -2,10 +2,11 @@
 
 set -e
 if [ ! -d armbian-red-kiosk ]; then
+    apt-get update
+    apt-get install -y git
     git clone https://github.com/dasimmet/armbian-red-kiosk.git
     cd armbian-red-kiosk
 else
     cd armbian-red-kiosk
-    git pull
 fi
 ./install.sh install
