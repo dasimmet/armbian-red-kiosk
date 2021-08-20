@@ -37,10 +37,9 @@ else
 fi
 }
 
-my_install(){
+my_install_nodeps(){
     set -x
     echo $URL
-    apt-get install xorg xserver-xorg-legacy openbox chromium-browser git
     install -m 644 src/Xwrapper.config /etc/X11/Xwrapper.config
     my_envsubst src/kiosk.sh /bin/kiosk.sh
     chmod 755 /bin/kiosk.sh
@@ -50,6 +49,13 @@ my_install(){
     systemctl daemon-reload
     systemctl restart kiosk nodered
     set +x
+}
+my_deps(){
+    apt-get install xorg xserver-xorg-legacy openbox chromium-browser git
+}
+my_install(){
+    my_deps
+    my_install_nodeps
 }
 
 my_envsubst(){
