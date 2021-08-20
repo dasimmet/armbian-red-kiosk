@@ -53,7 +53,8 @@ my_install_nodeps(){
     set +x
 }
 my_deps(){
-    apt-get install xorg xserver-xorg-legacy openbox chromium-browser git unclutter
+    curl -sL https://deb.nodesource.com/setup_16.x | bash -
+    apt-get install -y xorg xserver-xorg-legacy openbox chromium-browser git unclutter nodejs
 }
 my_install(){
     my_deps
