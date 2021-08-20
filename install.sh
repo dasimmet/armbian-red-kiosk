@@ -39,6 +39,7 @@ fi
 
 my_install_nodeps(){
     set -x
+    set -e
     echo $URL
     npm install
     install -m 644 src/Xwrapper.config /etc/X11/Xwrapper.config
@@ -46,11 +47,10 @@ my_install_nodeps(){
     chmod 755 /bin/kiosk.sh
     install -m 644 src/kiosk.service /etc/systemd/system/kiosk.service
     my_envsubst src/nodered.service /etc/systemd/system/nodered.service
-    useradd -m kiosk-user
+    useradd -m kiosk-user || true
     systemctl daemon-reload
     systemctl enable kiosk.service nodered.service
     systemctl restart kiosk.service nodered.service
-    set +x
 }
 my_deps(){
     curl -sL https://deb.nodesource.com/setup_16.x | bash -
