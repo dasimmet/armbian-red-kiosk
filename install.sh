@@ -2,7 +2,7 @@
 
 main(){
 POSITIONAL=()
-URL="http://localhost:1880/ui"
+URL="http://127.0.0.1:1880/"
 while [[ $# -gt 0 ]]; do
   key="$1"
 
